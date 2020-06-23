@@ -112,7 +112,7 @@ class Welcome extends Component {
               containing Content that we determine in our sole discretion are
               unlawful, offensive, threatening, libelous, defamatory,
               pornographic, obscene or otherwise objectionable or violates any
-              party's intellectual property or these Terms of Service.
+              party's intellectual property or these Terms of Service..
             </Text>
             <Text
               caption
