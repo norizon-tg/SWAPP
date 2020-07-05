@@ -44,14 +44,16 @@ export default class App extends React.Component {
 
   componentWillMount(){
     if (!firebase.apps.length) {
+      firebase.analytics();
       firebase.initializeApp({
         apiKey: "AIzaSyA-mRmgw68hsOA-V8GDu5IYeo9OHn1i3zo",
-      authDomain: "swapp-da9be.firebaseapp.com",
-      databaseURL: "https://swapp-da9be.firebaseio.com",
-      projectId: "swapp-da9be",
-      storageBucket: "swapp-da9be.appspot.com",
-      messagingSenderId: "775523048049",
-      appId: "1:775523048049:android:2241f45bb2d16b81"
+        authDomain: "swapp-da9be.firebaseapp.com",
+        databaseURL: "https://swapp-da9be.firebaseio.com",
+        projectId: "swapp-da9be",
+        storageBucket: "swapp-da9be.appspot.com",
+        messagingSenderId: "775523048049",
+        appId: "1:775523048049:android:2241f45bb2d16b81",
+        measurementId: "G-JTPK1VERLZ"
       });
     }
   }

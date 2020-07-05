@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {
+  View,
   Dimensions,
   Image,
   StyleSheet,
@@ -9,6 +10,10 @@ import {
 
 import { Card, Badge, Button, Block, Text } from "../components";
 import { theme, mocks } from "../constants";
+
+
+
+
 
 const { width } = Dimensions.get("window");
 
@@ -72,24 +77,22 @@ class Browse extends Component {
           showsVerticalScrollIndicator={false}
           style={{ paddingVertical: theme.sizes.base * 2 }}
         >
+          
           <Block flex={false} row space="between" style={styles.categories}>
             {categories.map(category => (
               <TouchableOpacity
+                activeOpacity={0.8}
                 key={category.name}
                 onPress={() => navigation.navigate(category.id, { category })}
               >
-                <Card center middle shadow style={styles.category}>
-                  <Badge
-                    margin={[0, 0, 15]}
-                    size={50}
-                    color="rgba(41,216,143,0.20)"
-                  >
-                    <Image source={category.image} />
-                  </Badge>
-                  <Text medium height={20}>
+                <Card center middle style={styles.category}>
+                  
+                  <Image source={category.image} style={styles.categoryImage} />
+                  
+                  <Text white medium height={20} style={styles.categoryTitle}>
                     {category.name}
                   </Text>
-                  <Text gray caption>
+                  <Text white caption>
                     {category.count} items
                   </Text>
                 </Card>
@@ -125,7 +128,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     marginRight: theme.sizes.base * 2,
-    paddingBottom: theme.sizes.base
+    paddingBottom: theme.sizes.base,
   },
   active: {
     borderBottomColor: theme.colors.secondary,
@@ -140,6 +143,16 @@ const styles = StyleSheet.create({
     // this should be dynamic based on screen width
     minWidth: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2,
     maxWidth: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2,
-    maxHeight: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2
+    maxHeight: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2,
+    backgroundColor: '#17c2a4',
+    height: 500
+  },
+  categoryImage: {
+    height: 100,
+    width: 100,
+   
+  },
+  categoryTitle: {
+    //fontStyle: 
   }
 });

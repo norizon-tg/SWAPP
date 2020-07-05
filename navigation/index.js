@@ -12,6 +12,13 @@ import Browse from "../screens/Browse";
 import Product from "../screens/Product";
 import Settings from "../screens/Settings";
 import Upload from "../screens/Upload";
+import FeedScreen from "../screens/FeedScreen";
+import StackNavigator from "../screens/StackNavigator";
+import NewPostScreen from "../screens/NewPostScreen";
+import SelectPhotoScreen from "../screens/SelectPhotoScreen";
+
+
+
 
 
 import { theme } from "../constants";
@@ -26,7 +33,12 @@ const screens = createStackNavigator(
     Browse,
     Product,
     Settings,
-    Upload
+    Upload,
+    StackNavigator,
+    FeedScreen,
+    NewPostScreen,
+    SelectPhotoScreen
+    
   },
   {
     defaultNavigationOptions: {

@@ -15,18 +15,18 @@ const categories = [
     name: "Pawn",
     tags: ["main_menu"],
     count: 147,
-    image: require("../assets/icons/plants.png")
+    image: require("../assets/icons/pawnimage.png")
   },
   {
-    id: "Explore",
-    name: "Plants",
-    tags: ["products", "inspirations"],
+    id: "ProductList",
+    name: "Cellphones",
+    tags: ["products"],
     count: 147,
-    image: require("../assets/icons/plants.png")
+    image: require("../assets/icons/phone_icon.png")
   },
   {
-    id: "seeds",
-    name: "Seeds",
+    id: "StackNavigator",
+    name: "feed",
     tags: ["products", "shop"],
     count: 16,
     image: require("../assets/icons/seeds.png")

@@ -11,6 +11,7 @@ import { theme } from "../constants";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import * as firebase from 'firebase';
+import * as Analytics from 'expo-firebase-analytics';
 import * as Facebook from 'expo-facebook';
 import { AccessToken, LoginManager } from "react-native-fbsdk";
 
@@ -67,6 +68,9 @@ export default class Login extends Component {
     .then(() =>{
       this.setState({ errors, loading: false });
       this.props.navigation.navigate('Browse');
+      Analytics.logEvent('login', {
+        hero_name: 'Saitama'
+      });
     })
     .catch(() =>{
       this.state({error:'Authentication failed', loading: false});

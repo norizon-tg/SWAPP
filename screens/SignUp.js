@@ -13,6 +13,22 @@ import { theme } from "../constants";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import * as firebase from 'firebase';
+import auth from '@react-native-firebase/auth';
+import database from '@react-native-firebase/database';
+
+if (!firebase.apps.length) {
+  firebase.initializeApp({
+    apiKey: "AIzaSyA-mRmgw68hsOA-V8GDu5IYeo9OHn1i3zo",
+  authDomain: "swapp-da9be.firebaseapp.com",
+  databaseURL: "https://swapp-da9be.firebaseio.com",
+  projectId: "swapp-da9be",
+  storageBucket: "swapp-da9be.appspot.com",
+  messagingSenderId: "775523048049",
+  appId: "1:775523048049:android:2241f45bb2d16b81"
+  });
+}
+
+
 
 
 export default class SignUp extends Component {
@@ -26,47 +42,43 @@ export default class SignUp extends Component {
 
   
 
+  
   handleSignUp() {
     const { navigation } = this.props;
     const { email, username, password } = this.state;
     const errors = [];
+    const userId = (firebase.auth().currentUser.uid).toString();
+    const path = "/UserAccounts/" + userId.toString();
 
     Keyboard.dismiss();
     this.setState({ loading: true });
 
     // // check with backend API or with some static data
-    // if (!email) errors.push("email");
-    // if (!username) errors.push("username");
-    // if (!password) errors.push("password");
+    // if (email !== VALID_EMAIL) {
+    //   errors.push("email");
+    // }
+    // if (password !== VALID_PASSWORD) {
+    //   errors.push("password");
+    // }
 
     // this.setState({ errors, loading: false });
 
     // if (!errors.length) {
-    //   Alert.alert(
-    //     "Success!",
-    //     "Your account has been created",
-    //     [
-    //       {
-    //         text: "Continue",
-    //         onPress: () => {
-    //           navigation.navigate("Browse");
-    //         }
-    //       }
-    //     ],
-    //     { cancelable: false }
-    //   );
+    //   navigation.navigate("Browse");
     // }
-
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(() =>{
       this.setState({ errors, loading: false });
+      var addUser = firebase.database().ref(path).push({ Email: email,  Usermame: username, Password: password});
       this.props.navigation.navigate('Browse');
     })
     .catch(() =>{
-      this.state({error:'Authentication failed', loading: false});
+      this.setState({error:'Authentication failed', loading: false});
 
     })
+
   }
+
 
   render() {
     const { navigation } = this.props;
