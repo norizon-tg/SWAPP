@@ -31,11 +31,8 @@ export default class Upload extends React.Component {
       try {
         const userId = (firebase.auth().currentUser.uid).toString();
         //Path to Item in Firebase Real-time Database
-        const path = "/UserItemList/" + userId.toString();
-        const path_Item = "/Items";
         //Also add item 
-        var addItem_UserAccounts = firebase.database().ref(path).push({ itemName: itemName,  desiredValue: desiredValue});
-        var addItem_Items =firebase.database().ref(path_Item).push({ itemName: itemName,  desiredValue: desiredValue});
+        var addItem = firebase.database().ref('Items/').child(userId).push({ itemName: itemName,  desiredValue: desiredValue}).getKey();
         
         //const path = userId.toString() + "/" + itemId.toString();
 

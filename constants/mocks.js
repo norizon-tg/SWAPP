@@ -4,33 +4,41 @@ const menu_items = [
 
 const categories = [
   {
+    id: "StackNavigator",
+    name: "Feed",
+    tags: ["main menu"],
+    count: 16,
+    image: require("../assets/icons/feed_icon.png")
+  },
+  {
+    id: "Explore",
+    name: "Explore",
+    tags: ["main menu"],
+    count: 147,
+    image: require("../assets/icons/explore_icon.png")
+  },
+  {
     id: "Upload",
     name: "Upload",
-    tags: ["main_menu"],
+    tags: ["main menu"],
     count: 147,
     image: require("../assets/icons/upload_icon.png")
   },
   {
     id: "pawn",
     name: "Pawn",
-    tags: ["main_menu"],
+    tags: ["main menu"],
     count: 147,
     image: require("../assets/icons/pawnimage.png")
   },
   {
-    id: "ProductList",
+    id: "Explore",
     name: "Cellphones",
     tags: ["products"],
     count: 147,
     image: require("../assets/icons/phone_icon.png")
   },
-  {
-    id: "StackNavigator",
-    name: "feed",
-    tags: ["products", "shop"],
-    count: 16,
-    image: require("../assets/icons/seeds.png")
-  },
+  
   {
     id: "flowers",
     name: "Flowers",

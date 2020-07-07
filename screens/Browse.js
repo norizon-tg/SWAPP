@@ -19,7 +19,7 @@ const { width } = Dimensions.get("window");
 
 class Browse extends Component {
   state = {
-    active: "Products",
+    active: "Main Menu",
     categories: []
   };
 
@@ -56,7 +56,7 @@ class Browse extends Component {
   render() {
     const { profile, navigation } = this.props;
     const { categories } = this.state;
-    const tabs = ["Products", "Main_Menu", "Shop"];
+    const tabs = ["Main Menu", "Products", "Shop"];
 
     return (
       <Block>

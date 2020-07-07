@@ -63,7 +63,7 @@
     "stream-chat": "^1.12.1",
     "stream-chat-expo": "^0.12.4",
     "stream-chat-react-native-core": "^0.12.4",
-    "uuid": "^8.1.0",
+    "uuid": "^8.2.0",
     "uuidv4": "^6.1.0"
   },
   "devDependencies": {

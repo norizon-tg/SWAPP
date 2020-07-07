@@ -15,10 +15,10 @@ export default class NewPostScreen extends Component {
         <Item
           title="Share"
           onPress={() => {
-            const text = this.props.navigation.getParam('text');
-            const image = this.props.navigation.getParam('image');
+            const text = navigation.getParam('text');
+            const image = navigation.getParam('image');
             if (text && image) {
-              this.props.navigation.navigate("NewPostScreen");
+              navigation.navigate("NewPostScreen");
               Fire.shared.post({ text: text.trim(), image });
             } else {
               alert('Need valid description');
