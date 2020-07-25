@@ -5,7 +5,8 @@ import {
   FlatList,
   StyleSheet,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  TextInput
 } from "react-native";
 import * as Icon from "@expo/vector-icons";
 

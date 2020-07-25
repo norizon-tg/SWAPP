@@ -16,6 +16,9 @@ import FeedScreen from "../screens/FeedScreen";
 import StackNavigator from "../screens/StackNavigator";
 import NewPostScreen from "../screens/NewPostScreen";
 import SelectPhotoScreen from "../screens/SelectPhotoScreen";
+import Uploadv2 from "../screens/Uploadv2";
+
+
 
 
 
@@ -37,7 +40,9 @@ const screens = createStackNavigator(
     StackNavigator,
     FeedScreen,
     NewPostScreen,
-    SelectPhotoScreen
+    SelectPhotoScreen,
+    Uploadv2
+   
     
   },
   {

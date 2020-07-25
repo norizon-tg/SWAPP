@@ -46,7 +46,7 @@ import { createStackNavigator } from 'react-navigation-stack';
       Main: {
         screen: navigator,
         // Set the title for our app when the tab bar screen is present
-        navigationOptions: { title: 'Instaham 🐷' },
+        navigationOptions: { title: '' },
       },
       // This screen will not have a tab bar
       NewPost: NewPostScreen,

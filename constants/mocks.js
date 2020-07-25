@@ -1,6 +1,3 @@
-const menu_items = [
-  
-];
 
 const categories = [
   {
@@ -18,7 +15,7 @@ const categories = [
     image: require("../assets/icons/explore_icon.png")
   },
   {
-    id: "Upload",
+    id: "Uploadv2",
     name: "Upload",
     tags: ["main menu"],
     count: 147,
@@ -39,42 +36,23 @@ const categories = [
     image: require("../assets/icons/phone_icon.png")
   },
   
-  {
-    id: "flowers",
-    name: "Flowers",
-    tags: ["products", "inspirations"],
-    count: 68,
-    image: require("../assets/icons/flowers.png")
-  },
-  {
-    id: "sprayers",
-    name: "Sprayers",
-    tags: ["products", "shop"],
-    count: 17,
-    image: require("../assets/icons/sprayers.png")
-  },
-  {
-    id: "pots",
-    name: "Pots",
-    tags: ["products", "shop"],
-    count: 47,
-    image: require("../assets/icons/pots.png")
-  },
-  {
-    id: "fertilizers",
-    name: "fertilizers",
-    tags: ["products", "shop"],
-    count: 47,
-    image: require("../assets/icons/fertilizers.png")
-  }
+  
 ];
 
 const products = [
   {
     id: 1,
-    name: "16 Best Plants That Thrive In Your Bedroom",
+    name: "Item Name",
     description:
-      "Bedrooms deserve to be decorated with lush greenery just like every other room in the house – but it can be tricky to find a plant that thrives here. Low light, high humidity and warm temperatures mean only certain houseplants will flourish.",
+      "Description: potted in a mixed garden soil \n" +
+      
+      "Condition: in good condition \n" +
+      
+      "Preferred Items: 15kls rice(not NFA) \n" +
+      
+      "Mode of Trade: Pick Up \n" +
+      
+      "\n \nDisclaimer: SWAPP is not liable for any risks involved in the barter of goods or services. I am aware that there are no guarantees and warranties, and that I am responsible for my own trade.",
     tags: ["Interior", "27 m²", "Ideas"],
     images: [
       require("../assets/images/plants_1.png"),

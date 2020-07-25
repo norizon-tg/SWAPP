@@ -6,7 +6,9 @@ import {
   Image,
   StyleSheet,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableHighlight,
+  ImageBackground,
 } from "react-native";
 import * as Icon from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
@@ -72,19 +74,30 @@ class Explore extends Component {
 
   
   renderExplore() {
-
+    const {uri} = this.state;
     const items = [];
     const userId = (firebase.auth().currentUser.uid);
+    const ref = firebase.storage().ref('Images/' + userId);
+    
     var rootRef = firebase.database().ref("Items");
-    var urlRef = rootRef.child(userId);
-    urlRef.on('value', function(snapshot) {
+    var itemNameRef = rootRef.child(userId);
+    var valueRef = rootRef.child(userId);
+    itemNameRef.on('value', function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
         var childData = childSnapshot.val().itemName;
-        console.log(childData);
+        var childData2 = childSnapshot.val().desiredValue;
         var itemName = childData.toString();
-        items.push(itemName);
+        var desiredValue = childData2.toString();
+        items.push({"itemName": itemName, "desiredValue": desiredValue});
+        ref.getDownloadURL().then((url) => {
+          this.setState({url: uri});
+        })
+        .catch((e) => console.log('getting downloadURL of image error => ', e));
       });
   });
+  
+   
+  
 
     return (
       <FlatGrid
@@ -95,12 +108,16 @@ class Explore extends Component {
       // fixed
       spacing={10}
       renderItem={({ item }) => (
-        <View style={[styles.itemContainer, { backgroundColor: "#00FF00" }]}>
-          <Text style={styles.itemName}>{item.name}</Text>
-          {/* <Text style={styles.itemCode}>{item.code}</Text> */}
-        </View>
+        <TouchableHighlight onPress={() => this.props.navigation.navigate("Product")}>
+            
+            <View style={[styles.itemContainer]} onPress={() => this.props.navigation.navigate("Product")}>
+              <ImageBackground source={url} style={styles.itemContainer}>
+                <Text style={styles.itemName}>{item.itemName}</Text>
+                <Text style={styles.itemCode}>{item.desiredValue}</Text>
+              </ImageBackground>
+            </View>
+        </TouchableHighlight>
 
-        
       )}
     />
     );
@@ -180,7 +197,9 @@ const styles = StyleSheet.create({
     maxHeight: 130,
     maxWidth: width - theme.sizes.padding * 2.5,
     marginBottom: theme.sizes.base,
-    borderRadius: 4
+    resizeMode: "cover",
+    flex: 1,
+    borderRadius: 5,
   },
   mainImage: {
     minWidth: width - theme.sizes.padding * 2.5,
@@ -206,17 +225,21 @@ const styles = StyleSheet.create({
   itemContainer: {
     justifyContent: 'flex-end',
     borderRadius: 5,
-    padding: 10,
     height: 150,
+    flex: 1,
+    borderRadius: 5,
   },
   itemName: {
     fontSize: 16,
     color: '#fff',
     fontWeight: '600',
+    marginBottom: "-10%",
+    paddingBottom: '5%'
   },
   itemCode: {
     fontWeight: '600',
     fontSize: 12,
     color: '#fff',
+    marginTop: "2.5%"
   },
 });
